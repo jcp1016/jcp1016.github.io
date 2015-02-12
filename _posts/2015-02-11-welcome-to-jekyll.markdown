@@ -13,11 +13,11 @@ This site is hosted on Github and managed with Jekyll.  If like me, you are gett
     source 'https://rubygems.org'
     gem 'github-pages'
 
-3)  Create a github branch named gh-pages.  According to the documentation, Jekyll looks for user content on the gh-pages branch and it looks for project code on the master branch. 
+3)  Create a github branch named gh-pages.  According to the documentation, Jekyll looks for user content on the gh-pages branch and it looks for project code on the master branch.  I've done this for now but I can see it becoming problematic.
 
-4)  Set your configs in _config.yml. 
+4)  Update _config.yml. 
 
-5)  The last step is not obvious and seems to be a bug.  When you download the sample project, the code is placed in a subdirectory of <username>.github.io.  When you push your code to Github it gives you an error stating that there is a problem with the css/main.scss file.  I Googled the issue and found that the solution is to move all of the files up to the <username>.github.io directory and remove the subdirectory. 
+5)  The last step is not obvious and seems to be a bug.  When you download the sample project, the code is placed in a subdirectory of <username>.github.io.  When you push your code to Github it gives you an error stating that there is a problem with the css/main.scss file.  I Googled the issue and found that a solution is to move all of the files up to the <username>.github.io directory and remove the subdirectory. 
 
 I hope this helps!
 

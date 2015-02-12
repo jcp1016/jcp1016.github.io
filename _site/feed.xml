@@ -5,8 +5,8 @@
     <description>Blog posts for a Spring 2015 course in exploratory data analysis and visualization at Columbia University.</description>
     <link>http://jcp1016.github.io/</link>
     <atom:link href="http://jcp1016.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 12 Feb 2015 00:08:29 -0500</pubDate>
-    <lastBuildDate>Thu, 12 Feb 2015 00:08:29 -0500</lastBuildDate>
+    <pubDate>Thu, 12 Feb 2015 00:20:05 -0500</pubDate>
+    <lastBuildDate>Thu, 12 Feb 2015 00:20:05 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
@@ -21,11 +21,11 @@
 gem &#39;github-pages&#39;
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;3)  Create a github branch named gh-pages.  According to the documentation, Jekyll looks for user content on the gh-pages branch and it looks for project code on the master branch. &lt;/p&gt;
+&lt;p&gt;3)  Create a github branch named gh-pages.  According to the documentation, Jekyll looks for user content on the gh-pages branch and it looks for project code on the master branch.  I’ve done this for now but I can see it becoming problematic.&lt;/p&gt;
 
-&lt;p&gt;4)  Set your configs in _config.yml. &lt;/p&gt;
+&lt;p&gt;4)  Update _config.yml. &lt;/p&gt;
 
-&lt;p&gt;5)  The last step is not obvious and seems to be a bug.  When you download the sample project, the code is placed in a subdirectory of &lt;username&gt;.github.io.  When you push your code to Github it gives you an error stating that there is a problem with the css/main.scss file.  I Googled the issue and found that the solution is to move all of the files up to the &lt;username&gt;.github.io directory and remove the subdirectory. &lt;/username&gt;&lt;/username&gt;&lt;/p&gt;
+&lt;p&gt;5)  The last step is not obvious and seems to be a bug.  When you download the sample project, the code is placed in a subdirectory of &lt;username&gt;.github.io.  When you push your code to Github it gives you an error stating that there is a problem with the css/main.scss file.  I Googled the issue and found that a solution is to move all of the files up to the &lt;username&gt;.github.io directory and remove the subdirectory. &lt;/username&gt;&lt;/username&gt;&lt;/p&gt;
 
 &lt;p&gt;I hope this helps!&lt;/p&gt;
 
