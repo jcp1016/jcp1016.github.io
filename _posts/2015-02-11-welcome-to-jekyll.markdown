@@ -4,9 +4,17 @@ title:  "Welcome to Jekyll!"
 date:   2015-02-11 18:00:15
 categories: jekyll update
 ---
-I will be posting udpates and useful tips here, along with my course projects.  My blog is hosted on Github and managed with Jekyll.  Take a look at the source for this post to get an idea about how it works.
+My blog is hosted on Github and managed with Jekyll.  I recommend using the Quickstart Guide to get up and running.  Once you download the sample Jekyll Bootstrap project, there are a few more things that you have to do:
 
-Jekyll also offers powerful support for code snippets:
+1)  gem install 'github-pages'                                
+2)  Create a file named Gemfile and add these two lines: 
+    source 'https://rubygems.org'
+    gem 'github-pages'
+3)  Create a branch named gh-pages.  According to the documentation Jekyll looks for user content on the gh-pages branch and it looks for project code on the master branch.
+4)  The last step is not obvious and seems to be a bug.  When you download the sample project, the code is placed in a subdirectory of <username>.github.io.  When you push your code to Github it gives you an error stating that there is a problem with the main.scss file.  I Googled the issue and found that the solution is to move all of the files up to the <username>.github.io directory and remove the subdirectory.  Push the changes to both master and gh-pages and you will be up and running!
+	
+
+Jekyll also offers support for code snippets:
 
 {% highlight ruby %}
 def print_hi(name)
