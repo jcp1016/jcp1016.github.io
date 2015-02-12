@@ -1,11 +1,11 @@
 # Site settings
 title: Exploratory Data Analysis and Visualization
-email: jcprumachuk@mac.com   
+email: jcp1016@mac.com   
 description: > # this means to ignore newlines until "baseurl:"
   Blog posts for a course in exploratory data analysis and visualization 
   at Columbia University. 
 baseurl: "/blog" # the subpath of your site, e.g. /blog/
-url: "http://jcp1016.github.io" # the base hostname & protocol for your site
+url: "http://jcp1016.github.io/my-edav-site/" # the base hostname & protocol for your site
 twitter_username: 
 github_username:  prumaj1016
 
