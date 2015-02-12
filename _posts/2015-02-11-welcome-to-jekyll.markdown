@@ -13,7 +13,7 @@ This site is hosted on Github and managed with Jekyll.  If like me, you are gett
     source 'https://rubygems.org'
     gem 'github-pages'
 
-3)  Create a branch named gh-pages.  According to the documentation Jekyll looks for user content on the gh-pages branch and it looks for project code on the master branch. 
+3)  Create a github branch named gh-pages.  According to the documentation, Jekyll looks for user content on the gh-pages branch and it looks for project code on the master branch. 
 
 4)  Set your configs in _config.yml. 
 
@@ -33,7 +33,7 @@ print_hi('Tom')
 
 Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
 
-[quickstart]:  http://http://jekyllrb.com/docs/quickstart
+[quickstart]:  http://jekyllrb.com/docs/quickstart
 [jekyll]:      http://jekyllrb.com
 [jekyll-gh]:   https://github.com/jekyll/jekyll
 [jekyll-help]: https://github.com/jekyll/jekyll-help
