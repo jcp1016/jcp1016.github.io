@@ -3,17 +3,33 @@
   <channel>
     <title>Exploratory Data Analysis and Visualization</title>
     <description>Blog posts for a course in exploratory data analysis and visualization at Columbia University.</description>
-    <link>http://jcp1016.github.io/my-edav-site//</link>
-    <atom:link href="http://jcp1016.github.io/my-edav-site//feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 11 Feb 2015 20:31:58 -0500</pubDate>
-    <lastBuildDate>Wed, 11 Feb 2015 20:31:58 -0500</lastBuildDate>
-    <generator>Jekyll v2.5.3</generator>
+    <link>http://jcp1016.github.io/</link>
+    <atom:link href="http://jcp1016.github.io/feed.xml" rel="self" type="application/rss+xml"/>
+    <pubDate>Wed, 11 Feb 2015 23:44:03 -0500</pubDate>
+    <lastBuildDate>Wed, 11 Feb 2015 23:44:03 -0500</lastBuildDate>
+    <generator>Jekyll v2.4.0</generator>
     
       <item>
         <title>Welcome to Jekyll!</title>
-        <description>&lt;p&gt;I will be posting udpates and useful tips here, along with my course projects.  My blog is hosted on Github and managed with Jekyll.  Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+        <description>&lt;p&gt;This site is hosted on Github and managed with Jekyll.  If like me, you are getting started with Jekyll, I recommend using the &lt;a href=&quot;http://http://jekyllrb.com/docs/quickstart&quot;&gt;Quickstart Guide&lt;/a&gt; after setting up your github.io repo.  Once you download the sample Jekyll Bootstrap project, there are a few more things that you have to do:&lt;/p&gt;
 
-&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+&lt;p&gt;1)  gem install ‘github-pages’&lt;/p&gt;
+
+&lt;p&gt;2)  Create a file named Gemfile and add these two lines:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;source &#39;https://rubygems.org&#39;
+gem &#39;github-pages&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;3)  Create a branch named gh-pages.  According to the documentation Jekyll looks for user content on the gh-pages branch and it looks for project code on the master branch. &lt;/p&gt;
+
+&lt;p&gt;4)  Set your configs in _config.yml. &lt;/p&gt;
+
+&lt;p&gt;5)  The last step is not obvious and seems to be a bug.  When you download the sample project, the code is placed in a subdirectory of &lt;username&gt;.github.io.  When you push your code to Github it gives you an error stating that there is a problem with the css/main.scss file.  I Googled the issue and found that the solution is to move all of the files up to the &lt;username&gt;.github.io directory and remove the subdirectory. &lt;/username&gt;&lt;/username&gt;&lt;/p&gt;
+
+&lt;p&gt;I hope this helps!&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers support for code snippets:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
   &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;
@@ -25,8 +41,8 @@
 
 </description>
         <pubDate>Wed, 11 Feb 2015 13:00:15 -0500</pubDate>
-        <link>http://jcp1016.github.io/my-edav-site//jekyll/update/2015/02/11/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">http://jcp1016.github.io/my-edav-site//jekyll/update/2015/02/11/welcome-to-jekyll.html</guid>
+        <link>http://jcp1016.github.io/jekyll/update/2015/02/11/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">http://jcp1016.github.io/jekyll/update/2015/02/11/welcome-to-jekyll.html</guid>
         
         
         <category>jekyll</category>
