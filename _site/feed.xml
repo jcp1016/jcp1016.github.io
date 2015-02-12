@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Exploratory Data Analysis and Visualization</title>
-    <description>Blog posts for a course in exploratory data analysis and visualization at Columbia University.</description>
+    <description>Blog posts for a Spring 2015 course in exploratory data analysis and visualization at Columbia University.</description>
     <link>http://jcp1016.github.io/</link>
     <atom:link href="http://jcp1016.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Wed, 11 Feb 2015 23:59:36 -0500</pubDate>
-    <lastBuildDate>Wed, 11 Feb 2015 23:59:36 -0500</lastBuildDate>
+    <pubDate>Thu, 12 Feb 2015 00:12:45 -0500</pubDate>
+    <lastBuildDate>Thu, 12 Feb 2015 00:12:45 -0500</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
     
       <item>
