@@ -7,7 +7,7 @@ categories: data analysis maps nyc
 ## NYC Collisions
 Data from New York City traffic collisions in 2014 was aggregated and mapped by zip code using geom_polygon on top of a Google street map.
 
-#### View the [R Markdown](Main.html)
+#### View the [R Markdown]({{ site.baseurl }}/assets/Main.html)
 <br />
 ![All collisions]({{ site.baseurl }}/assets/AllCollisions.png)
 <br /><br />
