@@ -11,11 +11,11 @@ Data from New York City traffic collisions in 2014 was aggregated and mapped by 
 <br />
 ![All collisions](AllCollisions.png)
 <br /><br />
-![Fatalities](Fatalities.png)
+![Fatalities](../_assets/Fatalities.png)
 <br /><br />
-![Bicycle fatalities](BikeFatalities.png)
+![Bicycle fatalities](../_assets/BikeFatalities.png)
 <br /><br />
-![Fatalities by day of the week](FatalitiesByDay.png)
+![Fatalities by day of the week](../_assets/FatalitiesByDay.png)
 <br /><br />
 _Data:  NYC Open Data_
 _Shapefiles:  NYS GIS Clearinghouse_
