@@ -13,11 +13,12 @@ I used 311 data from 2013 and aligned it with poverty statistics from the 2013 3
 ![Complaints by community district]({{ site.baseurl }}/assets/complaints_by_cd.png)
 <br />
 ![Complaints by poverty level]({{ site.baseurl }}/assets/complaints_by_level.png)
-<br />
+<br /> 
 ![Poverty level by community]({{ site.baseurl }}/assets/povertymap.png)
-<br /><br /> <br />
+<br /><br /><br />
 Data:  NYC Open Data, American Community Survey
 <br />
 Shapefiles:  GeoData@Columbia, culspatial.cul.columbia.edu
+<br />
 References:  Finding NYC Neighborhood Census Data:  http://guides.newman.baruch.cuny.edu/ld.php?content_id=7154885, Frank Donnelly, September 2, 2014
 
