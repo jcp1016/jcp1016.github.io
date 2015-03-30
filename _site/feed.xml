@@ -5,9 +5,81 @@
     <description>Blog posts for a Spring 2015 course in exploratory data analysis and visualization at Columbia University.</description>
     <link>http://jcp1016.github.io/</link>
     <atom:link href="http://jcp1016.github.io/feed.xml" rel="self" type="application/rss+xml"/>
-    <pubDate>Thu, 12 Feb 2015 00:23:29 -0500</pubDate>
-    <lastBuildDate>Thu, 12 Feb 2015 00:23:29 -0500</lastBuildDate>
+    <pubDate>Mon, 30 Mar 2015 16:32:54 -0400</pubDate>
+    <lastBuildDate>Mon, 30 Mar 2015 16:32:54 -0400</lastBuildDate>
     <generator>Jekyll v2.4.0</generator>
+    
+      <item>
+        <title>What a Hundred Million Calls to 311 Reveal About New York</title>
+        <description>&lt;p&gt;You may have seen the image below in Wired magazine or at the Museum of Modern Art in Manhattan.  Although its title references “a hundred million calls”, it is based on one week of calls placed during September 2010.  The image is beautiful, showing how complaint types changed depending on the time of day.  I wanted to know more, such as how complaints varied by neighborhood and how calls from poor neighborhoods compared with those from wealthier ones.
+&lt;br /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/wired311.jpg&quot; alt=&quot;Wired image&quot; /&gt;
+&lt;br /&gt;
+Source:
+(http://http://www.wired.com/2010/11/ff_311_new_york/ “2010 Wired article”)&lt;/p&gt;
+
+&lt;h2 id=&quot;data&quot;&gt;Data&lt;/h2&gt;
+&lt;p&gt;I used 311 data from 2013 and aligned it with poverty statistics from the 2013 3-year American Community Survey. Census data and 311 data do not line up exactly because the census uses “census tracts” and 311 data is provided by zip code and GPS coordinates.  However a GIS expert at Baruch CUNY has done the work of assigning NYC zip codes to census boundaries based on a number of factors.  For more information on this, refer to the excellent “Finding NYC Neighborhood Census Data” listed below.
+&lt;br /&gt;
+&lt;img src=&quot;/assets/complaints_by_cd.png&quot; alt=&quot;Complaints by community district&quot; /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/assets/complaints_by_level.png&quot; alt=&quot;Complaints by poverty level&quot; /&gt;
+&lt;br /&gt;
+&lt;img src=&quot;/assets/povertymap.png&quot; alt=&quot;Poverty level by community&quot; /&gt;
+&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
+Data:  NYC Open Data, American Community Survey
+&lt;br /&gt;
+Shapefiles:  GeoData@Columbia, culspatial.cul.columbia.edu
+&lt;br /&gt;
+References:  Finding NYC Neighborhood Census Data:  http://guides.newman.baruch.cuny.edu/ld.php?content_id=7154885, Frank Donnelly, September 2, 2014&lt;/p&gt;
+
+</description>
+        <pubDate>Tue, 24 Mar 2015 10:23:00 -0400</pubDate>
+        <link>http://jcp1016.github.io/data/analysis/nyc/311/2015/03/24/nyc-311.html</link>
+        <guid isPermaLink="true">http://jcp1016.github.io/data/analysis/nyc/311/2015/03/24/nyc-311.html</guid>
+        
+        
+        <category>data</category>
+        
+        <category>analysis</category>
+        
+        <category>nyc</category>
+        
+        <category>311</category>
+        
+      </item>
+    
+      <item>
+        <title>Mapping NYC Collisions</title>
+        <description>&lt;p&gt;Data on New York City traffic collisions in 2014 was mapped by zip code using ggplot and geom_polygon over a Google street map. View the &lt;a href=&quot;/assets/Main.html&quot;&gt;R Markdown&lt;/a&gt;.
+&lt;br /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/p1.png&quot; alt=&quot;All collisions&quot; /&gt;
+&lt;br /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/p2.png&quot; alt=&quot;Fatalities&quot; /&gt;
+&lt;br /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/p3.png&quot; alt=&quot;Bicycle fatalities&quot; /&gt;
+&lt;br /&gt;&lt;br /&gt;
+&lt;img src=&quot;/assets/p4.png&quot; alt=&quot;Fatalities by day of the week&quot; /&gt;
+&lt;br /&gt;&lt;br /&gt;&lt;br /&gt;
+&lt;em&gt;Data:  NYC Open Data&lt;/em&gt; 
+&lt;br /&gt;
+&lt;em&gt;Shapefiles:  NYS GIS Clearinghouse&lt;/em&gt;&lt;/p&gt;
+
+</description>
+        <pubDate>Sat, 21 Feb 2015 15:46:00 -0500</pubDate>
+        <link>http://jcp1016.github.io/data/analysis/maps/nyc/2015/02/21/nyc-collisions.html</link>
+        <guid isPermaLink="true">http://jcp1016.github.io/data/analysis/maps/nyc/2015/02/21/nyc-collisions.html</guid>
+        
+        
+        <category>data</category>
+        
+        <category>analysis</category>
+        
+        <category>maps</category>
+        
+        <category>nyc</category>
+        
+      </item>
     
       <item>
         <title>Welcome to Jekyll!</title>
@@ -17,8 +89,8 @@
 
 &lt;p&gt;2)  Create a file named Gemfile and add these two lines:&lt;/p&gt;
 
-&lt;pre&gt;&lt;code&gt;source &#39;https://rubygems.org&#39;
-gem &#39;github-pages&#39;
+&lt;pre&gt;&lt;code&gt;source 'https://rubygems.org'
+gem 'github-pages'
 &lt;/code&gt;&lt;/pre&gt;
 
 &lt;p&gt;3)  Create a github branch named gh-pages.  According to the documentation, Jekyll looks for user content on the gh-pages branch and it looks for project code on the master branch.  I’ve done this for now but I can see it becoming problematic.&lt;/p&gt;
