@@ -8,8 +8,9 @@ You may have seen the image below in Wired magazine or at the Museum of Modern A
 <br /><br />
 ![Wired image]({{ site.baseurl }}/assets/wired311.jpg)
 <br />
-Source:<br />
-(http://http://www.wired.com/2010/11/ff_311_new_york/ "2010 Wired article")<br />
+####Source:
+(http://http://www.wired.com/2010/11/ff_311_new_york/)<br />
+
 ###Problems with the graph 
 1.  The graph is misleading unless you read the fine print.  Contrary to the main title, it is based on thirty-two thousand calls placed during the first week of September 2010.  In fact the number one complaint to 311 is by far, lack of heat.  To quote Edward Tufte, "a puny dataset can't be rescued by a graphic".    
 2.  It isn't entirely clear whether the outer rings contain more calls or fewer calls than the inner rings.  As you look at the graph, do you find yourself using your knowledge of the city to make assumptions about its meaning?
@@ -18,9 +19,9 @@ Source:<br />
 ###Step 1:  Understand the data 
 I wanted to obtain a larger 311 dataset and see if I could link it to poverty statistics from the most recent (2013) 3-year American Community Survey. Census data and 311 data do not line up exactly because the Census Bureau uses "census tracts" and 311 data is provided by zip code and GPS coordinates.  However a geographer at Baruch CUNY has done the work of assigning NYC zip codes to census boundaries based on a number of factors.  For more information on this, refer to the excellent "Finding NYC Neighborhood Census Data" listed below.
 Data sources:<br />
-![NYC OpenData](https://nycopendata.socrata.com/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9 "NYC OpenData")<br />
-![Reformatted ACS poverty data]({{ site.baseurl }}/assets/nyc_poverty_2013.csv)<br />
-![Zip code-to-PUMA ID mapping]({{ site.baseurl }}/assets/nyc_zcta10_to_puma10.csv)<br />
+[NYC OpenData](https://nycopendata.socrata.com/Social-Services/311-Service-Requests-from-2010-to-Present/erm2-nwe9 "NYC OpenData")<br />
+[Reformatted ACS poverty data]({{ site.baseurl }}/assets/nyc_poverty_2013.csv)<br />
+[Zip code-to-PUMA ID mapping]({{ site.baseurl }}/assets/nyc_zcta10_to_puma10.csv)<br />
 
 ###Step 2:  Sketch 
 After working with the data and confirming that I could link it, I drew some rough sketches.<br />
@@ -28,14 +29,9 @@ After working with the data and confirming that I could link it, I drew some rou
 ![sketch 2]({{ site.baseurl }}/assets/sketch2.jpg)<br />
 ![sketch 3]({{ site.baseurl }}/assets/sketch3.jpg)<br />
 
-####Here is a preview of the results
-![Summary of top complaints]({{ site.baseurl }}/assets/barchart.png)<br />
-![Complaints by poverty level]({{ site.baseurl }}/assets/complaints_by_level.png)<br />
-![Complaints by community district]({{ site.baseurl }}/assets/complaints_by_cd.png)<br />
-
 ###Step 3:  Code, test, rinse, repeat...
 ![Summary of top complaints]({{ site.baseurl }}/assets/barchart.png)<br />
-Build a simple bar chart to show the top calls to 311 over a one year period
+Build a simple bar chart to show the top calls to 311 over a one year period<br />
 ```{r}
 by_ct <- group_by( data, ComplaintType )
 ct1   <- summarize( by_ct, n=sum(n) )
@@ -55,22 +51,17 @@ ggplot(data=top_22, aes(x=ComplaintType, y=n, fill=ComplaintType, width=2)) +
         scale_x_discrete(limits=rev(top_22$ComplaintType))
 ```
 ![Complaints by poverty level]({{ site.baseurl }}/assets/complaints_by_level.png)<br />
-Make a map showing poverty levels by Public Use Microdata (PUMA) ID.
+Make a map showing poverty levels by Public Use Microdata (PUMA) ID.<br />
 ```{r}
-## Get map shapes for census tracts
 setwd("~/Columbia/nyc-311/DATA/OGPDownload-4")
 census_tracts <- readOGR(dsn=".","Columbia_nyct2010ids")
 nyc_shapes <- spTransform(census_tracts, CRS("+proj=longlat + datum=WGS84"))
-
-## Merge map shapes with poverty data
 nycmap_df <- fortify(nyc_shapes)
 map_data  <- data.frame(id=rownames(nyc_shapes@data),
                         PUMA_ID=nyc_shapes@data$puma,
                         GEO_ID=nyc_shapes@data$geoid )
 map_data  <- merge(map_data, poverty_data, by="PUMA_ID")
 map_df    <- merge(nycmap_df, map_data, by="id")
-
-## Make plots
 setwd("~/Columbia/nyc-311")
 pdf(file="map1.pdf", height=8.77)
 qmap('new york, ny', zoom=11, maptype='roadmap', color='bw', legend='topleft') +
@@ -80,7 +71,7 @@ qmap('new york, ny', zoom=11, maptype='roadmap', color='bw', legend='topleft') +
         scale_fill_gradientn("% of People\nLiving Below\nPoverty Level", colours=brewer.pal(4,"GnBu"), na.value="grey20", guide="colourbar") +
         theme(plot.title = element_text(size=16, face="bold"))
 ```
-Build a heatmap of 311 calls by poverty level, based on the location of the caller.
+<br />Build a heatmap of 311 calls by poverty level, based on the location of the caller.<br />
 ```{r}
 by_pvcat <- group_by( data, PvCategory, ComplaintType )
 s1 <- summarize( by_pvcat, n=sum(n) )
@@ -148,12 +139,12 @@ heatmap.2(data_matrix,
           ylab=NULL)
 ```
 <br /><br />
-Code for this project is available on GitHub at (https://github.com/jcp1016/nyc-311 "GitHub repository")
-<br /><br />
+Code for this project is available on GitHub at (https://github.com/jcp1016/nyc-311)
+<br />
 Data:  NYC Open Data, American Community Survey<br />
 Shapefiles:  GeoData@Columbia, culspatial.cul.columbia.edu<br />
-References:<br />  
-Finding NYC Neighborhood Census Data:  http://guides.newman.baruch.cuny.edu/ld.php?content_id=7154885, Frank Donnelly, September 2, 2014<br />
+References:  
+Finding NYC Neighborhood Census Data:  (http://guides.newman.baruch.cuny.edu/ld.php?content_id=7154885), Frank Donnelly, September 2, 2014<br />
 Tufte, Edward R. The Visual Display of Quantitative Information. Cheshire, Conn. (Box 430, Cheshire 06410): Graphics, 1983. Print.<br />
 Yau, Nathan. Visualize This: The FlowingData Guide to Design, Visualization, and Statistics. Indianapolis, Ind.: Wiley Pub., 2011. Print.<br />
 
