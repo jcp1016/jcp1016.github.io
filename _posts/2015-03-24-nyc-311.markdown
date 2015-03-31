@@ -12,9 +12,9 @@ Source:
 [Wired magazine](http://http://www.wired.com/2010/11/ff_311_new_york/)
 
 ###Problems with the graph 
-1.  The graph is misleading, in part because of the title of the article.  It is based on thirty-two thousand calls placed during the first week of September 2010.  The number one complaint to 311 is for heating, which was missed because there are no heating complaints in late summer.  To quote Edward Tufte, "a puny dataset can't be rescued by a graphic".    
-2.  It isn't entirely clear whether the outer rings contain more calls or fewer calls than the inner rings.  As you look at the graph, do you find yourself using your knowledge of the city to make assumptions about its meaning?
-3.  There is very little information in the graph.  For example, how do the complaints vary by neighborhood?  Do complaints from the poorest neighborhoods in the city differ from others?
+1.  The graph is misleading, in part because of the title of the article.  It is based on calls placed during the first week of September 2010.  In reality the number one complaint to 311 is for heating, but it was missed because there are no heating complaints in late summer.  To quote Edward Tufte, "a puny dataset can't be rescued by a graphic".    
+2.  Other than noise, it isn't entirely clear which complaints are more frequent than others.  As you look at the graph, do you find yourself making assumptions about the data?
+3.  While it is pleasing visually, there is very little information in the graph.  For example, how do complaints vary by neighborhood?  Do calls from the poorest neighborhoods in the city differ from others?
 
 ###Step 1:  Understanding the data 
 I wanted to obtain a larger 311 dataset and see if I could link it to poverty statistics from the most recent (2013) 3-year American Community Survey. Census data and 311 data do not line up exactly because the Census Bureau uses "census tracts" and 311 data is provided by zip code and GPS coordinates.  However a geographer at Baruch CUNY has done the work of assigning NYC zip codes to census boundaries based on a number of factors.  For more information on this, refer to the excellent "Finding NYC Neighborhood Census Data" listed below.<br >
