@@ -4,7 +4,7 @@ title:  "What a Million Calls to 311 Reveal About New York"
 date:   2015-03-24 14:23:00
 categories: data analysis nyc 311
 ---
-You may have seen the image below in Wired magazine or at the Museum of Modern Art in Manhattan.  The image is beautiful, showing how complaint types changed depending on the time of day.  
+You may have seen the image below in Wired magazine or at the Museum of Modern Art in Manhattan.  The Wired article was called "What A Hundred Million Calls to 311 Reveal About New York".  The image is beautiful, showing how complaint types changed depending on the time of day.  
 <br /><br />
 ![Wired image]({{ site.baseurl }}/assets/wired311.jpg)
 <br /><br />
@@ -12,9 +12,9 @@ Source:
 [Wired magazine](http://www.wired.com/2010/11/ff_311_new_york/)
 
 ###Problems with the graph 
-1.  The graph is misleading, in part because of the title of the article.  It is based on calls placed during the first week of September 2010.  In reality the number one complaint to 311 is for heating, but it was missed because there are no heating complaints in late summer.  To quote Edward Tufte, "a puny dataset can't be rescued by a graphic".    
-2.  Other than noise, it isn't entirely clear which complaints are more frequent than others.  As you look at the graph, do you find yourself making assumptions about the data?
-3.  While it is pleasing visually, there is very little information in the graph.  For example, how do complaints vary by neighborhood?  Do calls from the poorest neighborhoods in the city differ from others?
+1.  The graph is misleading, in part because of the title of the article.  It is based on 32,000 calls placed during the first week of September 2010.  In reality the number one complaint to 311 is for heating, but this was missed because there are no heating complaints in late summer.  To quote Edward Tufte, "a puny dataset can't be rescued by a graphic".    
+2.  Other than Noise, it isn't entirely clear which complaints are more frequent than others.  As you look at the graph, do you find yourself making assumptions about the data?
+3.  While it is pleasing visually, there is very little information in the graph.  For example, how do complaints vary by neighborhood?  Could complaints from the poorest neighborhoods reveal something?
 
 ###Step 1:  Understanding the data 
 I wanted to obtain a larger 311 dataset and see if I could link it to poverty statistics from the most recent (2013) 3-year American Community Survey. Census data and 311 data do not line up exactly because the Census Bureau uses "census tracts" and 311 data is provided by zip code and GPS coordinates.  However a geographer at Baruch CUNY has done the work of assigning NYC zip codes to census boundaries based on a number of factors.  For more information on this, refer to the excellent "Finding NYC Neighborhood Census Data" listed below.<br >
@@ -156,8 +156,9 @@ Build a heatmap of the top complaints by community district<br />
           ylab=NULL)
 ```
 
+
 ###Step 4:  Adjust labels and titles
-I created pdf files and brought them into Illustrator where I could work on the labels, adjust the title location, and make the grid lines more prominent.  In a future post I will convert them to interactive charts.
+I created pdf files and brought them into Illustrator where I could work on the labels, adjust the title location, and make the heatmap grid lines more prominent.  
 <br /><br />
 Code for this project is available on GitHub at [https://github.com/jcp1016/nyc-311](https://github.com/jcp1016/nyc-311)
 <br /><br />
