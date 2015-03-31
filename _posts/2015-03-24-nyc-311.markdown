@@ -59,9 +59,11 @@ Build a simple bar chart showing the top calls to 311 over a one year period<br 
 
 <br />
 
-Make a map showing poverty levels by neighborhood.<br />
 ![Complaints by poverty level]({{ site.baseurl }}/assets/complaints_by_level.png)<br />
 [Click to enlarge]({{ site.baseurl }}/assets/complaints_by_level.png)
+
+<br />
+Make a map showing poverty levels by neighborhood.<br />
 
 ```
     census_tracts <- readOGR(dsn=".","Columbia_nyct2010ids")
@@ -120,25 +122,25 @@ Build a heatmap of 311 calls by poverty level, based on location of the caller.<
           sepwidth=c(0.1,0.1))
 ```
 
-</br >
-Build a heatmap of the top complaints by community district<br />
+
 ![Poverty level by community]({{ site.baseurl }}/assets/complaints_by_cd.png)<br />
 [Click to enlarge]({{ site.baseurl }}/assets/complaints_by_cd.png)<br />
 
+Build a heatmap of the top complaints by community district<br />
+
 ```
-    by_dc <- group_by( data, CD_Name, ComplaintType )
-    s1 <- summarize( by_dc, n=sum(n) )
-    t1 <- melt(s1)
-    t2 <- cast(t1, ComplaintType ~ CD_Name, sum, margins=TRUE)
-    names(t2)[ncol(t2)] <- "Total"
-    t3 <- filter(t2, Total > 5000)
-    t4 <- t3[order(desc(t3$Total)),]
-    t4 <- t4[-1,]
-    row.names(t4) <- t4$ComplaintType
-    t4 <- t4[,-1]
-    t4 <- t4[,-ncol(t4)]
-    data_matrix <- data.matrix(scale(t4))
-    pdf("heatmap_cd.pdf", width=10, height=14)
+    by_dc <- group_by( data, CD_Name, ComplaintType )<br />
+    s1 <- summarize( by_dc, n=sum(n) )<br />
+    t1 <- melt(s1)<br />
+    t2 <- cast(t1, ComplaintType ~ CD_Name, sum, margins=TRUE)<br />
+    names(t2)[ncol(t2)] <- "Total"<br />
+    t3 <- filter(t2, Total > 5000)<br />
+    t4 <- t3[order(desc(t3$Total)),]<br />
+    t4 <- t4[-1,]<br />
+    row.names(t4) <- t4$ComplaintType<br />
+    t4 <- t4[,-1]<br />
+    t4 <- t4[,-ncol(t4)]<br />
+    data_matrix <- data.matrix(scale(t4))<br />
     heatmap.2(data_matrix,
           Rowv=NA, Colv=NA,
           dendrogram='none',
