@@ -12,9 +12,9 @@ Source:
 [Wired magazine](http://http://www.wired.com/2010/11/ff_311_new_york/)
 
 ###Problems with the graph 
-1.  The graph is misleading unless you read the fine print.  Contrary to the main title, it is based on thirty-two thousand calls placed during the first week of September 2010.  In fact the number one complaint to 311 is by far, lack of heat.  To quote Edward Tufte, "a puny dataset can't be rescued by a graphic".    
+1.  The graph is misleading unless you read the fine print.  Contrary to the main title, it is based on thirty-two thousand calls placed during the first week of September 2010.  In fact the number one complaint to 311 is a lack of heat.  To quote Edward Tufte, "a puny dataset can't be rescued by a graphic".    
 2.  It isn't entirely clear whether the outer rings contain more calls or fewer calls than the inner rings.  As you look at the graph, do you find yourself using your knowledge of the city to make assumptions about its meaning?
-3.  There is very little information in the graph.  For example, how do the complaints vary by neighborhood?  How do complaints from the poorest neighborhoods in the city differ from others?
+3.  There is very little information in the graph.  For example, how do the complaints vary by neighborhood?  Do complaints from the poorest neighborhoods in the city differ from others?
 
 ###Step 1:  Understand the data 
 I wanted to obtain a larger 311 dataset and see if I could link it to poverty statistics from the most recent (2013) 3-year American Community Survey. Census data and 311 data do not line up exactly because the Census Bureau uses "census tracts" and 311 data is provided by zip code and GPS coordinates.  However a geographer at Baruch CUNY has done the work of assigning NYC zip codes to census boundaries based on a number of factors.  For more information on this, refer to the excellent "Finding NYC Neighborhood Census Data" listed below.<br >
@@ -36,7 +36,7 @@ After working with the data and confirming that I could link it, I drew some rou
 Build a simple bar chart showing the top calls to 311 over a one year period<br />
 ![Summary of top complaints]({{ site.baseurl }}/assets/barchart.png)<br />
 
-```{r}
+```
 by_ct <- group_by( data, ComplaintType )
 ct1   <- summarize( by_ct, n=sum(n) )
 top_complaints <- filter( ct1, n > 17000 )
@@ -54,12 +54,13 @@ ggplot(data=top_22, aes(x=ComplaintType, y=n, fill=ComplaintType, width=2)) +
         theme(axis.title.x = element_blank()) +
         scale_x_discrete(limits=rev(top_22$ComplaintType))
 ```
+
 <br />
 
 Make a map showing poverty levels by Public Use Microdata (PUMA) ID.<br />
 ![Complaints by poverty level]({{ site.baseurl }}/assets/complaints_by_level.png)<br />
 
-```{r}
+```
 setwd("~/Columbia/nyc-311/DATA/OGPDownload-4")
 census_tracts <- readOGR(dsn=".","Columbia_nyct2010ids")
 nyc_shapes <- spTransform(census_tracts, CRS("+proj=longlat + datum=WGS84"))
@@ -78,11 +79,12 @@ qmap('new york, ny', zoom=11, maptype='roadmap', color='bw', legend='topleft') +
         scale_fill_gradientn("% of People\nLiving Below\nPoverty Level", colours=brewer.pal(4,"GnBu"), na.value="grey20", guide="colourbar") +
         theme(plot.title = element_text(size=16, face="bold"))
 ```
+
 <br />
 
 Build a heatmap of 311 calls by poverty level, based on location of the caller.<br />
 
-```{r}
+```
 by_pvcat <- group_by( data, PvCategory, ComplaintType )
 s1 <- summarize( by_pvcat, n=sum(n) )
 t1 <- melt(s1)
@@ -120,7 +122,7 @@ heatmap.2(data_matrix,
 Build a heatmap of the top complaints by community district<br />
 ![Poverty level by community]({{ site.baseurl }}/assets/povertymap.png)<br />
 
-```{r}
+```
 by_dc <- group_by( data, CD_Name, ComplaintType )
 s1 <- summarize( by_dc, n=sum(n) )
 t1 <- melt(s1)
