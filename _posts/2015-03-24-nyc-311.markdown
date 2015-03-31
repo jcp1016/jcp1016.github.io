@@ -32,9 +32,11 @@ After working with the data and confirming that I could link it, I drew some rou
 ![sketch 2]({{ site.baseurl }}/assets/sketch2.png)
 ![sketch 3]({{ site.baseurl }}/assets/sketch3.png)
 
+<br />
 ###Step 3:  Code, test, rinse, repeat...
 Build a simple bar chart showing the top calls to 311 over a one year period<br />
 ![Summary of top complaints]({{ site.baseurl }}/assets/barchart.png)<br />
+[Click to enlarge]({{ site.baseurl }}/assets/barchart.png)<br />
 
 ```
 by_ct <- group_by( data, ComplaintType )
@@ -59,8 +61,7 @@ ggplot(data=top_22, aes(x=ComplaintType, y=n, fill=ComplaintType, width=2)) +
 
 Make a map showing poverty levels by Public Use Microdata (PUMA) ID.<br />
 ![Complaints by poverty level]({{ site.baseurl }}/assets/complaints_by_level.png)<br />
-
-[Complaints by poverty level]({{ site.baseurl }}/assets/complaints_by_level.png)
+[Click to enlarge]({{ site.baseurl }}/assets/complaints_by_level.png)
 
 ```
 setwd("~/Columbia/nyc-311/DATA/OGPDownload-4")
@@ -122,9 +123,8 @@ heatmap.2(data_matrix,
 ```
 
 Build a heatmap of the top complaints by community district<br />
-![Poverty level by community]({{ site.baseurl }}/assets/povertymap.png)<br />
-
-[Poverty level by community]({{ site.baseurl }}/assets/povertymap.png)<br />
+![Poverty level by community]({{ site.baseurl }}/assets/complaints_by_cd.png)<br />
+[Click to enlarge]({{ site.baseurl }}/assets/complaints_by_cd.png)<br />
 
 ```
 by_dc <- group_by( data, CD_Name, ComplaintType )
@@ -157,6 +157,8 @@ heatmap.2(data_matrix,
           ylab=NULL)
 ```
 
+###Step 4:  Adjust labels and titles
+I created pdf files and brought them into Illustrator where I could work on the labels, adjust the title location, and make the grid lines more prominent.  In a future post I will convert them to interactive charts.
 <br /><br />
 Code for this project is available on GitHub at [https://github.com/jcp1016/nyc-311](https://github.com/jcp1016/nyc-311)
 <br /><br />
