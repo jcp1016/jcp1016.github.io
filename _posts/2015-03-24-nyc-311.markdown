@@ -9,7 +9,7 @@ You may have seen the image below in Wired magazine or at the Museum of Modern A
 ![Wired image]({{ site.baseurl }}/assets/wired311.jpg)
 <br /><br />
 Source:
-[Wired magazine](http://http://www.wired.com/2010/11/ff_311_new_york/)
+[Wired magazine](http://www.wired.com/2010/11/ff_311_new_york/)
 
 ###Problems with the graph 
 1.  The graph is misleading, in part because of the title of the article.  It is based on calls placed during the first week of September 2010.  In reality the number one complaint to 311 is for heating, but it was missed because there are no heating complaints in late summer.  To quote Edward Tufte, "a puny dataset can't be rescued by a graphic".    
@@ -33,20 +33,20 @@ After working with the data and confirming that I could link it, I drew some rou
 ![sketch 3]({{ site.baseurl }}/assets/sketch3.png)
 
 <br />
+
 ###Step 3:  Code, test, rinse, repeat...
 Build a simple bar chart showing the top calls to 311 over a one year period<br />
 ![Summary of top complaints]({{ site.baseurl }}/assets/barchart.png)<br />
-[Click to enlarge]({{ site.baseurl }}/assets/barchart.png)<br />
 
 ```
-by_ct <- group_by( data, ComplaintType )
-ct1   <- summarize( by_ct, n=sum(n) )
-top_complaints <- filter( ct1, n > 17000 )
-top_22 <- inner_join(ct1, top_complaints, by="ComplaintType")
-names(top_22)[2] <- "n"
-top_22[,3] <- NULL
-top_22 <- top_22[order(desc(top_22$n)),]
-ggplot(data=top_22, aes(x=ComplaintType, y=n, fill=ComplaintType, width=2)) +
+    by_ct <- group_by( data, ComplaintType )
+    ct1   <- summarize( by_ct, n=sum(n) )
+    top_complaints <- filter( ct1, n > 17000 )
+    top_22 <- inner_join(ct1, top_complaints, by="ComplaintType")
+    names(top_22)[2] <- "n"
+    top_22[,3] <- NULL
+    top_22 <- top_22[order(desc(top_22$n)),]
+    ggplot(data=top_22, aes(x=ComplaintType, y=n, fill=ComplaintType, width=2)) +
         geom_bar(width=0.8, stat="identity", position=position_dodge(width=0.40)) +
         coord_flip() +
         guides(fill=FALSE) +
@@ -59,23 +59,22 @@ ggplot(data=top_22, aes(x=ComplaintType, y=n, fill=ComplaintType, width=2)) +
 
 <br />
 
-Make a map showing poverty levels by Public Use Microdata (PUMA) ID.<br />
+Make a map showing poverty levels by neighborhood.<br />
 ![Complaints by poverty level]({{ site.baseurl }}/assets/complaints_by_level.png)<br />
 [Click to enlarge]({{ site.baseurl }}/assets/complaints_by_level.png)
 
 ```
-setwd("~/Columbia/nyc-311/DATA/OGPDownload-4")
-census_tracts <- readOGR(dsn=".","Columbia_nyct2010ids")
-nyc_shapes <- spTransform(census_tracts, CRS("+proj=longlat + datum=WGS84"))
-nycmap_df <- fortify(nyc_shapes)
-map_data  <- data.frame(id=rownames(nyc_shapes@data),
+    census_tracts <- readOGR(dsn=".","Columbia_nyct2010ids")
+    nyc_shapes <- spTransform(census_tracts, CRS("+proj=longlat + datum=WGS84"))
+    nycmap_df <- fortify(nyc_shapes)
+    map_data  <- data.frame(id=rownames(nyc_shapes@data),
                         PUMA_ID=nyc_shapes@data$puma,
                         GEO_ID=nyc_shapes@data$geoid )
-map_data  <- merge(map_data, poverty_data, by="PUMA_ID")
-map_df    <- merge(nycmap_df, map_data, by="id")
-setwd("~/Columbia/nyc-311")
-pdf(file="map1.pdf", height=8.77)
-qmap('new york, ny', zoom=11, maptype='roadmap', color='bw', legend='topleft') +
+    map_data  <- merge(map_data, poverty_data, by="PUMA_ID")
+    map_df    <- merge(nycmap_df, map_data, by="id")
+    setwd("~/Columbia/nyc-311")
+    pdf(file="map1.pdf", height=8.77)
+    qmap('new york, ny', zoom=11, maptype='roadmap', color='bw', legend='topleft') +
         geom_polygon(aes(long, lat, group=id, fill=FamBwPvP),
                      data=map_df, alpha=.9) +
         ggtitle("Poverty in New York City") +
@@ -84,24 +83,23 @@ qmap('new york, ny', zoom=11, maptype='roadmap', color='bw', legend='topleft') +
 ```
 
 <br />
-
 Build a heatmap of 311 calls by poverty level, based on location of the caller.<br />
 
 ```
-by_pvcat <- group_by( data, PvCategory, ComplaintType )
-s1 <- summarize( by_pvcat, n=sum(n) )
-t1 <- melt(s1)
-t2 <- cast(t1, ComplaintType ~ PvCategory, sum, margins=TRUE)
-names(t2)[ncol(t2)] <- "Total"
-t3 <- filter(t2, Total > 16000)
-t4 <- t3[order(desc(t3$Total)),]
-t4 <- t4[-1,]
-row.names(t4) <- t4$ComplaintType
-t4 <- t4[,-1]
-t4 <- t4[,-ncol(t4)]
-data_matrix <- data.matrix(scale(t4))
-pdf("heatmap_lvl.pdf", width=10, height=12)
-heatmap.2(data_matrix,
+    by_pvcat <- group_by( data, PvCategory, ComplaintType )
+    s1 <- summarize( by_pvcat, n=sum(n) )
+    t1 <- melt(s1)
+    t2 <- cast(t1, ComplaintType ~ PvCategory, sum, margins=TRUE)
+    names(t2)[ncol(t2)] <- "Total"
+    t3 <- filter(t2, Total > 16000)
+    t4 <- t3[order(desc(t3$Total)),]
+    t4 <- t4[-1,]
+    row.names(t4) <- t4$ComplaintType
+    t4 <- t4[,-1]
+    t4 <- t4[,-ncol(t4)]
+    data_matrix <- data.matrix(scale(t4))
+    pdf("heatmap_lvl.pdf", width=10, height=12)
+    heatmap.2(data_matrix,
           Rowv=NA, Colv=NA,
           dendrogram='none',
           scale='none',
@@ -122,25 +120,26 @@ heatmap.2(data_matrix,
           sepwidth=c(0.1,0.1))
 ```
 
+</br >
 Build a heatmap of the top complaints by community district<br />
 ![Poverty level by community]({{ site.baseurl }}/assets/complaints_by_cd.png)<br />
 [Click to enlarge]({{ site.baseurl }}/assets/complaints_by_cd.png)<br />
 
 ```
-by_dc <- group_by( data, CD_Name, ComplaintType )
-s1 <- summarize( by_dc, n=sum(n) )
-t1 <- melt(s1)
-t2 <- cast(t1, ComplaintType ~ CD_Name, sum, margins=TRUE)
-names(t2)[ncol(t2)] <- "Total"
-t3 <- filter(t2, Total > 5000)
-t4 <- t3[order(desc(t3$Total)),]
-t4 <- t4[-1,]
-row.names(t4) <- t4$ComplaintType
-t4 <- t4[,-1]
-t4 <- t4[,-ncol(t4)]
-data_matrix <- data.matrix(scale(t4))
-pdf("heatmap_cd.pdf", width=10, height=14)
-heatmap.2(data_matrix,
+    by_dc <- group_by( data, CD_Name, ComplaintType )
+    s1 <- summarize( by_dc, n=sum(n) )
+    t1 <- melt(s1)
+    t2 <- cast(t1, ComplaintType ~ CD_Name, sum, margins=TRUE)
+    names(t2)[ncol(t2)] <- "Total"
+    t3 <- filter(t2, Total > 5000)
+    t4 <- t3[order(desc(t3$Total)),]
+    t4 <- t4[-1,]
+    row.names(t4) <- t4$ComplaintType
+    t4 <- t4[,-1]
+    t4 <- t4[,-ncol(t4)]
+    data_matrix <- data.matrix(scale(t4))
+    pdf("heatmap_cd.pdf", width=10, height=14)
+    heatmap.2(data_matrix,
           Rowv=NA, Colv=NA,
           dendrogram='none',
           scale='none',
