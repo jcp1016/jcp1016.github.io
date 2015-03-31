@@ -9,7 +9,7 @@ You may have seen the image below in Wired magazine or at the Museum of Modern A
 ![Wired image]({{ site.baseurl }}/assets/wired311.jpg)
 <br /><br />
 Source:
-[Wired magazine](http://www.wired.com/2010/11/ff_311_new_york/)
+[http://www.wired.com/2010/11/ff_311_new_york](http://www.wired.com/2010/11/ff_311_new_york)
 
 ###Problems with the graph 
 1.  The graph is misleading, in part because of the title of the article.  It is based on 32,000 calls placed during the first week of September 2010.  In reality the number one complaint to 311 is for heating, but this was missed because there are no heating complaints in late summer.  To quote Edward Tufte, "a puny dataset can't be rescued by a graphic".    
@@ -158,6 +158,7 @@ Build a heatmap of the top complaints by community district<br />
           ylab=NULL)
 ```
 
+<br />
 
 ###Step 4:  Adjust labels and titles
 I created pdf files and brought them into Illustrator where I could work on the labels, adjust the title location, and make the heatmap grid lines more prominent.  
