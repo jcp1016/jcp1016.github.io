@@ -3,11 +3,10 @@ title: Exploratory Data Analysis and Visualization
 ownername:  Janet Prumachuk
 email: janet.prumachuk@columbia.edu
 description: 
-  Blog posts for a Spring 2015 course in exploratory data analysis and visualization 
-  at Columbia University. 
+  Projects in data analysis and visualization using open data and open source tools
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "http://jcp1016.github.io" # the base hostname & protocol for your site
-twitter_username: 
+twitter_username: janet_prumachuk
 github_username:  jcp1016
 
 # Build settings
