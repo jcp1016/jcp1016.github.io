@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html>
 <head>
 	<title>What a million calls to 311 reveal about New York</title>
@@ -14,6 +14,7 @@
 		html {
 			margin: 0 auto;
 			margin-top: 10px;
+			width: 1000px;
 		}
 		#my_container {
 			padding: 15px;
@@ -79,7 +80,7 @@
 	</div>
 
     <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-	<script type="text/javascript" src="scripts/nyc311_polygons.js"></script>
+	<script type="text/javascript" src="{{ "/scripts/nyc311_polygons.js" | prepend: site.baseurl }}"></script>
 	<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 	<script type="text/javascript">
 
